@@ -1,12 +1,15 @@
 [package]
 name = "ak500-digital-lite"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
-description = "Minimal Windows HID monitor for DeepCool AK500 DIGITAL"
+description = "Lightweight DeepCool AK500 DIGITAL CPU temperature and usage monitor"
 license = "MIT"
 
 [target.'cfg(windows)'.dependencies]
 hidapi = { version = "2.6.7", default-features = false, features = ["windows-native"] }
+
+[build-dependencies]
+cc = "1.2"
 
 [profile.release]
 opt-level = "z"
