@@ -8,7 +8,7 @@ fn main() {
         return;
     }
 
-    if env::var("CARGO_CFG_TARGET_ENV").as_deref() != Ok("msvc") {
+    if env::var("CARGO_CFG_TARGET_ENV").unwrap_or_default() != "msvc" {
         panic!("The AMD SDK adapter requires the x86_64-pc-windows-msvc toolchain.");
     }
 
