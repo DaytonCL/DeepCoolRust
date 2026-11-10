@@ -148,7 +148,7 @@ mod app {
     }
 
     fn show_temperature(elapsed: Duration) -> bool {
-        (elapsed.as_secs() / MODE_INTERVAL.as_secs()).is_multiple_of(2)
+        (elapsed.as_secs() / MODE_INTERVAL.as_secs()) % 2 == 0
     }
 
     fn send_report(device: &HidDevice, packet: &[u8; REPORT_LENGTH]) -> Result<(), Box<dyn Error>> {
