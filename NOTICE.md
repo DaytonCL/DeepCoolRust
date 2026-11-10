@@ -1,18 +1,36 @@
-# Protocol attribution
+# Attribution and third-party dependencies
 
-The DeepCool AK Series USB HID constants, device IDs, and packet layouts were researched using the MIT-licensed project:
+## Deepcool-Digital-Windows — HID protocol
 
-- Project: https://github.com/Shark1nat0r/deepcool-digital-windows
-- Original author: Sharkinator, copyright (c) 2025
+The AK Series HID packet format and USB identifiers were researched using:
+
+- Source: https://github.com/Shark1nat0r/deepcool-digital-windows
+- Author: Sharkinator, copyright (c) 2025
 - License: MIT
 
-The Rust source is independently written. It uses Rust USB HID access instead of HidSharp and Windows system time counters instead of LibreHardwareMonitor.
+## SidebarMonitor — AMD SDK integration reference
 
-The reference project's MIT license text:
+The general technique of translating the AMD Ryzen Master Monitoring SDK C++ interface into plain C ABI functions was researched using:
+
+- Source: https://github.com/WRCX/SidebarMonitor/blob/main/native/RyzenShim/RyzenShim.cpp
+- Author: WRCX, copyright (c) 2026
+- License: MIT
+
+These projects are used as protocol/API references. The Rust application and native adapter are newly implemented for this repository.
+
+## AMD Ryzen Master Monitoring SDK
+
+- Vendor: Advanced Micro Devices, Inc.
+- SDK: https://www.amd.com/en/developer/ryzen-master-monitoring-sdk.html
+- SDK headers, Platform.dll, Device.dll, driver, and accompanying licensed files are **not** shipped with this repository.
+- Users must install and use the AMD SDK under AMD's applicable license terms.
+
+## MIT license notice for original reference works
 
 MIT License
 
 Copyright (c) 2025 Sharkinator
+Copyright (c) 2026 WRCX
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -32,4 +50,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-The Rust hidapi dependency is licensed separately; consult its package metadata before binary redistribution.
+## Open-source dependencies
+
+- Rust hidapi package: see its upstream license.
+- Rust cc build dependency: see its upstream license.
