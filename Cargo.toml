@@ -1,0 +1,16 @@
+[package]
+name = "ak500-digital-lite"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal Windows HID monitor for DeepCool AK500 DIGITAL"
+license = "MIT"
+
+[target.'cfg(windows)'.dependencies]
+hidapi = { version = "2.6.7", default-features = false, features = ["windows-native"] }
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
